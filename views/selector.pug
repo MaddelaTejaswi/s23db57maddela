@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  -let images= ["Car.jpg","flower.jpg","icecream.jpg","shinchan.jpg","butterfly.jpg"]
+  -for(var i=0;i<3; i++) {
+    -let randm = Math.floor(Math.random()*5)
+    img(src=`images/${images[randm]}`,height="300px",width="300px")
+  -}

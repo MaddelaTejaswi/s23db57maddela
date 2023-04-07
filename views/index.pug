@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Tejaswi page #{title}
+     button(type="button" , class="btn btn-secondary", onClick="reduce()") PRESS ME
+
+     div(id="reduce" ) REDUCE THE VALUE
+     a(href="queen") Link
+     script.
+      let count =20;
+      let change = -1;
+      function reduce() {
+        count = count+change;
+        change = change-1;
+        document.getElementById("reduce").innerHTML = "Count is " +count+ "Change is" +change;
+      }
