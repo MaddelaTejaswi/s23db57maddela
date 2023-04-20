@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  - let results = [{Queen_name:"Tejaswi",Queen_age:"18",Queen_height:"5.0'"},{Queen_name:"Sanrita",Queen_age:"22",Queen_height:"5.5'"},{Queen_name:"Emma Watson",Queen_age:"24",Queen_height:"5.7'"}]
+  - let items = results 
   div(class="container-fluid")
     div(class="row")
-      each item,index in results
+      each item,index in items
         div(class="col-sm-2",onClick=`buy(${index})`)
           p Name is #{item.Queen_name}
           p Type is #{item.Queen_age}
