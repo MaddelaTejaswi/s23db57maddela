@@ -154,5 +154,19 @@ exports.queen_update_Page = async function(req, res) {
     }
     };
 
+   // Handle a delete one view with id from query
+exports.queen_delete_Page = async function(req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try{
+    result = await queen.findById(req.query.id)
+    res.render('queendelete', { title: 'queen Delete', toShow:
+    result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
     
+     
     

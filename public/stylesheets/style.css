@@ -1,13 +1,13 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 80px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #181a1a;
 }
 .queenAttr {
-  background-color: aquamarine;
-  width: 120px;
+  background-color: rgb(255, 127, 210);
+  width: 150px;
   }
   

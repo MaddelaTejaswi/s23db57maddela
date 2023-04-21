@@ -8,8 +8,8 @@ block content
       each item,index in items
         div(class="col-sm-2",onClick=`buy(${index})`)
           p Name is #{item.Queen_name}
-          p Type is #{item.Queen_age}
-          p Cost is #{item.Queen_height}
+          p age is #{item.Queen_age}
+          p height is #{item.Queen_height}
   script.
     function buy(inn){
       inn=inn+1;

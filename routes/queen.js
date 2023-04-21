@@ -9,5 +9,7 @@ router.get('/detail', queen_controlers.queen_view_one_Page);
 router.get('/create', queen_controlers.queen_create_Page);
 /* GET create update page */
 router.get('/update', queen_controlers.queen_update_Page);
+/* GET delete queen page */
+router.get('/delete', queen_controlers.queen_delete_Page);
 
 module.exports = router;
