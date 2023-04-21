@@ -6,10 +6,12 @@ block content
   div(class="container-fluid")
     div(class="row")
       each item,index in items
+       let destination = `dispatch(\"/costumes/update?id=${item._id}\")`
         div(class="col-sm-2",onClick=`buy(${index})`)
           p Name is #{item.Queen_name}
           p age is #{item.Queen_age}
           p height is #{item.Queen_height}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
     function buy(inn){
       inn=inn+1;
