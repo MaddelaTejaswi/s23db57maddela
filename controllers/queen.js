@@ -1,11 +1,11 @@
 var queen = require('../models/queen');
-// List of all queens
+// List of all queen
 
-// List of all queens
+// List of all queen
 exports.queen_list = async function (req, res) {
     try {
-        thequeens = await queen.find();
-        res.send(thequeens);
+        thequeen = await queen.find();
+        res.send(thequeen);
     }
     catch (err) {
         res.status(500);
@@ -106,8 +106,8 @@ failed`);
 // Handle a show all view
 exports.queen_view_all_Page = async function (req, res) {
     try {
-        thequeens = await queen.find();
-        res.render('queen', { title: 'queen Search Results', results: thequeens });
+        thequeen = await queen.find();
+        res.render('queen', { title: 'queen Search Results', results: thequeen });
     }
     catch (err) {
         res.status(500);
@@ -127,3 +127,32 @@ exports.queen_view_one_Page = async function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
+    // Handle building the view for creating a queen.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.queen_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('queencreate', { title: 'queen Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    // Handle building the view for updating a queen.
+// query provides the id
+exports.queen_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await queen.findById(req.query.id)
+    res.render('queenupdate', { title: 'queen Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
+    
+    

@@ -1,0 +1,42 @@
+extends layout
+block content
+ h1= title
+ if (toShow == null)
+  h2 No instance to update
+ else
+  - let queenid = toShow._id
+  - let Queen_name = toShow.Queen_name
+  - let Queen_age = toShow.Queen_age
+  - let Queen_height = toShow.Queen_height
+  div.row(class='mb-2')
+   div.mr-1 ID is
+   div #{queenid}
+  - let actionid = "/resource/queen/" + queenid
+  form(id='queenForm', action= actionid, method="PUT")
+   div.form-group
+     label.queenAttr(for='Queen_name') queen name
+     input#Queen_name(type='String', name='Queen_name', value= Queen_name )
+   div.form-group
+     label.queenAttr(for='Queen_age') queen Age
+     input#Queen_age(type='number', name='Queen_age', value= Queen_age )
+   div.form-group
+     label.queenAttr(for='Queen_height') queen Height
+     input#Queen_height(type='number', name='Queen_height', value= Queen_height )
+   input(type="submit")
+  script.
+   document.forms['queenForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+     method: 'PUT',
+     body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+     return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+     alert("Update succeded")
+     // TODO handle body
+    }).catch((error) => {
+     // TODO handle error
+     alert("Update failed " + error )
+    });
+   });

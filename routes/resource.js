@@ -8,13 +8,13 @@ var queen_controller = require('../controllers/queen');
 router.get('/', api_controller.api);
 /// queen ROUTES ///
 // POST request for creating a queen.
-router.post('/queens', queen_controller.queen_create_post);
+router.post('/queen', queen_controller.queen_create_post);
 // DELETE request to delete queen.
-router.delete('/queens/:id', queen_controller.queen_delete);
+router.delete('/queen/:id', queen_controller.queen_delete);
 // PUT request to update queen.
-router.put('/queens/:id', queen_controller.queen_update_put);
+router.put('/queen/:id', queen_controller.queen_update_put);
 // GET request for one queen.
-router.get('/queens/:id', queen_controller.queen_detail);
+router.get('/queen/:id', queen_controller.queen_detail);
 // GET request for list of all queen items.
-router.get('/queens', queen_controller.queen_list);
+router.get('/queen', queen_controller.queen_list);
 module.exports = router;
